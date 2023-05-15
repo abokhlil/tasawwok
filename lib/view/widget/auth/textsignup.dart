@@ -10,7 +10,7 @@ class TextSignUpOrIn extends StatelessWidget {
       required this.onTap});
   final String text1;
   final String text2;
-  final void Function() onTap; 
+  final void Function() onTap;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,7 +22,7 @@ class TextSignUpOrIn extends StatelessWidget {
           child: Text(
             text2,
             style: const TextStyle(
-                color: AppColor.purple, fontWeight: FontWeight.bold),
+                color: AppColor.blue, fontWeight: FontWeight.bold),
           ),
         ),
       ],
