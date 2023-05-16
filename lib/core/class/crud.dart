@@ -27,7 +27,7 @@ class Crud {
       }
     } catch (_) {
       print("Mahmoud5");
-      return const Left(StatusRequest.failure);
+      return const Left(StatusRequest.serverException);
     }
   }
 }

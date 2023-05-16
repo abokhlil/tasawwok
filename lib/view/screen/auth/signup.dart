@@ -1,4 +1,5 @@
 import 'package:ecommerce_application/controller/auth/signup_controller.dart';
+import 'package:ecommerce_application/core/class/statusrequest.dart';
 import 'package:ecommerce_application/core/constant/colors.dart';
 import 'package:ecommerce_application/core/function/alertexitapp.dart';
 import 'package:ecommerce_application/core/function/validinput.dart';
@@ -30,82 +31,86 @@ class SignUp extends StatelessWidget {
         ),
       ),
       body: GetBuilder<SignUpControllerImp>(
-        builder: (controller) => Container(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-          child: WillPopScope(
-            onWillPop: alertExitApp,
-            child: Form(
-              key: controller.formState,
-              child: ListView(
-                children: [
-                  CustomMainLabel(
-                    mainLabel: '3'.tr,
+        builder: (controller) => controller.statusRequest ==
+                StatusRequest.loading
+            ? const Center(child: Text('Loading...'))
+            : Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                child: WillPopScope(
+                  onWillPop: alertExitApp,
+                  child: Form(
+                    key: controller.formState,
+                    child: ListView(
+                      children: [
+                        CustomMainLabel(
+                          mainLabel: '3'.tr,
+                        ),
+                        CustomBodyLabel(
+                          bodyLabel: '13'.tr,
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        CustomTextForm(
+                          isNumber: false,
+                          controller: controller.userName,
+                          hintText: '14'.tr,
+                          labelText: '15'.tr,
+                          iconData: Icons.person_outlined,
+                          valid: (val) {
+                            return validInput(val!, 5, 50, "username");
+                          },
+                        ),
+                        CustomTextForm(
+                            isNumber: true,
+                            valid: (val) {
+                              return validInput(val!, 5, 50, "phone");
+                            },
+                            controller: controller.phoneNumber,
+                            hintText: '16'.tr,
+                            labelText: '17'.tr,
+                            iconData: Icons.phone_android_outlined),
+                        CustomTextForm(
+                            isNumber: false,
+                            valid: (val) {
+                              return validInput(val!, 5, 50, "email");
+                            },
+                            controller: controller.email,
+                            hintText: '6'.tr,
+                            labelText: '5'.tr,
+                            iconData: Icons.email_outlined),
+                        CustomTextForm(
+                          isNumber: false,
+                          controller: controller.password,
+                          hintText: '8'.tr,
+                          labelText: '7'.tr,
+                          iconData: Icons.lock_outlined,
+                          valid: (val) {
+                            return validInput(val!, 8, 16, "password");
+                          },
+                        ),
+                        CustomButtonAuth(
+                          onPressed: () {
+                            controller.signup();
+                          },
+                          text: '12'.tr,
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        TextSignUpOrIn(
+                          text1: "18".tr,
+                          text2: "2".tr,
+                          onTap: () {
+                            controller.goToSignIn();
+                          },
+                        ),
+                      ],
+                    ),
                   ),
-                  CustomBodyLabel(
-                    bodyLabel: '13'.tr,
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  CustomTextForm(
-                    isNumber: false,
-                    controller: controller.userName,
-                    hintText: '14'.tr,
-                    labelText: '15'.tr,
-                    iconData: Icons.person_outlined,
-                    valid: (val) {
-                      return validInput(val!, 5, 50, "username");
-                    },
-                  ),
-                  CustomTextForm(
-                      isNumber: true,
-                      valid: (val) {
-                        return validInput(val!, 5, 50, "phone");
-                      },
-                      controller: controller.phoneNumber,
-                      hintText: '16'.tr,
-                      labelText: '17'.tr,
-                      iconData: Icons.phone_android_outlined),
-                  CustomTextForm(
-                      isNumber: false,
-                      valid: (val) {
-                        return validInput(val!, 5, 50, "email");
-                      },
-                      controller: controller.email,
-                      hintText: '6'.tr,
-                      labelText: '5'.tr,
-                      iconData: Icons.email_outlined),
-                  CustomTextForm(
-                    isNumber: false,
-                    controller: controller.password,
-                    hintText: '8'.tr,
-                    labelText: '7'.tr,
-                    iconData: Icons.lock_outlined,
-                    valid: (val) {
-                      return validInput(val!, 8, 16, "password");
-                    },
-                  ),
-                  CustomButtonAuth(
-                    onPressed: () {
-                      controller.signup();
-                    },
-                    text: '12'.tr,
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  TextSignUpOrIn(
-                    text1: "18".tr,
-                    text2: "2".tr,
-                    onTap: () {
-                      controller.goToSignIn();
-                    },
-                  ),
-                ],
+                ),
               ),
-            ),
-          ),
-        ),
       ),
     );
   }
