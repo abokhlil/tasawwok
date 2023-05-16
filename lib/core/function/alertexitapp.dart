@@ -14,7 +14,7 @@ Future<bool> alertExitApp() {
             exit(0);
           },
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(AppColor.purple),
+            backgroundColor: MaterialStateProperty.all(AppColor.blue),
             overlayColor: MaterialStateProperty.all(Colors.red),
           ),
           child: const Text("Confirm"),
@@ -24,7 +24,7 @@ Future<bool> alertExitApp() {
               Get.back();
             },
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(AppColor.purple),
+              backgroundColor: MaterialStateProperty.all(AppColor.blue),
               overlayColor: MaterialStateProperty.all(Colors.green),
             ),
             child: const Text("Cancel")),

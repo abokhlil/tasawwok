@@ -22,7 +22,7 @@ class DotController extends StatelessWidget {
                   height: 6,
                   width: controller.currentPage == index ? 20 : 5,
                   decoration: BoxDecoration(
-                    color: AppColor.purple,
+                    color: AppColor.blue,
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
