@@ -24,6 +24,10 @@ class MyTranslation extends Translations {
           '16': 'أدخل رقم الهاتف',
           '17': 'رقم الهاتف',
           '18': 'أتملك أي حساب ؟',
+          '19':'اختر المنتج ',
+          '20':'لدينا 100الف منتج في متجر الالكترونيات الخاص بنا يمكنك اختيار ما يناسبك من بين هذه المنتجات عن طريق زيارة المتجر الالكتروني',
+          '21':'عملية الدفع سهلة وامنة',
+          '22':'توصيل سريع'
         },
         'en': {
           '1': 'Choose Language',
@@ -46,6 +50,10 @@ class MyTranslation extends Translations {
           '16': " Enter Phone Number",
           '17': " Phone Number",
           '18': "Have an account ? ",
+          '19': 'Choose Product',
+          '20':'We Have a 100k Product,Choose \n Your Product Form Our \nE- commerce Shop',
+          '21':'Easy And Safe payment ',
+          '22':'Fast Delivery',
         },
       };
 }

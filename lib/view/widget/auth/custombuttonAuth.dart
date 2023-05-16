@@ -19,6 +19,6 @@ class CustomButtonAuth extends StatelessWidget {
         child: Text(text),
       ),
     );
-    ;
+    
   }
 }
