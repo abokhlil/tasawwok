@@ -1,4 +1,5 @@
 import 'package:ecommerce_application/controller/auth/signup_controller.dart';
+import 'package:ecommerce_application/core/class/handling_data_view.dart';
 import 'package:ecommerce_application/core/class/statusrequest.dart';
 import 'package:ecommerce_application/core/constant/colors.dart';
 import 'package:ecommerce_application/core/function/alertexitapp.dart';
@@ -31,10 +32,9 @@ class SignUp extends StatelessWidget {
         ),
       ),
       body: GetBuilder<SignUpControllerImp>(
-        builder: (controller) => controller.statusRequest ==
-                StatusRequest.loading
-            ? const Center(child: Text('Loading...'))
-            : Container(
+        builder: (controller) =>
+         HandlingDataRequest(statusRequest: controller.statusRequest, widget: 
+             Container(
                 padding:
                     const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
                 child: WillPopScope(
@@ -110,7 +110,7 @@ class SignUp extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
+              ),),
       ),
     );
   }

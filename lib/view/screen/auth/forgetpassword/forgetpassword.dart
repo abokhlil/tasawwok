@@ -1,4 +1,6 @@
 import 'package:ecommerce_application/controller/auth/fotgetpassword/forgetpassword_controller.dart';
+import 'package:ecommerce_application/core/class/handling_data_view.dart';
+import 'package:ecommerce_application/core/class/statusrequest.dart';
 import 'package:ecommerce_application/core/constant/colors.dart';
 import 'package:ecommerce_application/core/function/validinput.dart';
 import 'package:ecommerce_application/view/widget/auth/custombuttonAuth.dart';
@@ -13,7 +15,6 @@ class ForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ForgetPasswordControllerImp controller =
         Get.put(ForgetPasswordControllerImp());
     return Scaffold(
       appBar: AppBar(
@@ -28,7 +29,9 @@ class ForgetPassword extends StatelessWidget {
               .copyWith(color: AppColor.grey),
         ),
       ),
-      body: Container(
+      body: GetBuilder<ForgetPasswordControllerImp>(builder: (controller)=>
+      HandlingDataRequest(statusRequest: controller.statusRequest, widget:
+      Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: Form(
           key: controller.formState,
@@ -55,7 +58,7 @@ class ForgetPassword extends StatelessWidget {
                   iconData: Icons.email_outlined),
               CustomButtonAuth(
                 onPressed: () {
-                  controller.goToVerifyCode();
+                  controller.checkEmail();
                 },
                 text: 'Check',
               ),
@@ -66,6 +69,7 @@ class ForgetPassword extends StatelessWidget {
           ),
         ),
       ),
+      ),),
     );
   }
 }

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'core/localization/translation.dart';
 import 'routes.dart';
 import 'test.dart';
+import 'view/screen/auth/forgetpassword/resetpassword.dart';
 import 'view/screen/language.dart';
 
 void main() async {
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: controller.appTheme,
       initialBinding: InitialBindings(),
-      // home: const Language(),
+      // home: const ResetPassword(),
       // home: const Test(),
       //  routes: routes,
       getPages: routes,

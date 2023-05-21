@@ -1,4 +1,6 @@
 import 'package:ecommerce_application/controller/auth/fotgetpassword/resetpassword_controller.dart';
+import 'package:ecommerce_application/core/class/handling_data_view.dart';
+import 'package:ecommerce_application/core/class/statusrequest.dart';
 import 'package:ecommerce_application/core/constant/colors.dart';
 import 'package:ecommerce_application/core/function/validinput.dart';
 import 'package:ecommerce_application/view/widget/auth/custombuttonAuth.dart';
@@ -13,7 +15,6 @@ class ResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ResetPasswordControllerImp controller =
         Get.put(ResetPasswordControllerImp());
     return Scaffold(
       appBar: AppBar(
@@ -28,7 +29,9 @@ class ResetPassword extends StatelessWidget {
               .copyWith(color: AppColor.grey),
         ),
       ),
-      body: Container(
+      body: GetBuilder<ResetPasswordControllerImp>(builder: (controller)=>
+      HandlingDataRequest(statusRequest: controller.statusRequest ,widget:
+      Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: Form(
           key: controller.formState,
@@ -59,7 +62,7 @@ class ResetPassword extends StatelessWidget {
                 valid:(val){
                   return validInput(val!, 8, 17, "password");
                 } ,
-                  controller: controller.password,
+                  controller: controller.rePassword,
                   hintText: 'Rewrite Password'.tr,
                   labelText: 'Verification '.tr,
                   iconData: Icons.lock_outlined),
@@ -75,6 +78,8 @@ class ResetPassword extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      ),
       ),
     );
   }
