@@ -1,12 +1,17 @@
 class AppLink {
-  static const server = "";
-  static const test = "https://fakestoreapi.com/products";
+  static const String server = "";
+  static const String test = "";
 
 
 //========================= Auth ==================================//
-  static const signupApi = "https://fakestoreapi.com/products";
+  static const String signupApi = "";
+  static const String loginApi = "";
+  static const String verifycodeSignupApi = "";
 
+//========================= forget password ==================================//
+  static const String checkEmailApi = "";
+  static const String resetpasswordApi = "";
+  static const String verifycodeForgetpasswordApi = "";
 
 
 }
- 

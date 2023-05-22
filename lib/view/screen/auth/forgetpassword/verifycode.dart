@@ -1,5 +1,6 @@
 import 'package:ecommerce_application/controller/auth/fotgetpassword/forgetpassword_controller.dart';
 import 'package:ecommerce_application/controller/auth/fotgetpassword/verifycode_controller.dart';
+import 'package:ecommerce_application/core/class/handling_data_view.dart';
 import 'package:ecommerce_application/core/constant/colors.dart';
 import 'package:ecommerce_application/view/widget/auth/custombuttonAuth.dart';
 import 'package:ecommerce_application/view/widget/auth/custommainlabel.dart';
@@ -13,7 +14,7 @@ class VerifyCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    VerifyCodeControllerImp controller = Get.put(VerifyCodeControllerImp());
+    Get.put(VerifyCodeControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -27,7 +28,9 @@ class VerifyCode extends StatelessWidget {
               .copyWith(color: AppColor.grey),
         ),
       ),
-      body: Container(
+      body: GetBuilder<VerifyCodeControllerImp>(builder: (controller)=>
+      HandlingDataRequest(statusRequest: controller.statusRequest,widget:
+      Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: ListView(
           children: [
@@ -51,7 +54,7 @@ class VerifyCode extends StatelessWidget {
               },
               //runs when every textfield is filled
               onSubmit: (String verificationCode) {
-                controller.goToResetPassword();
+                controller.goToResetPassword(verificationCode);
                 // showDialog(
                 //     context: context,
                 //     builder: (context) {
@@ -70,7 +73,7 @@ class VerifyCode extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      ),),),
     );
   }
 }

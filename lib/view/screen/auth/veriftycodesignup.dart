@@ -1,4 +1,6 @@
 import 'package:ecommerce_application/controller/auth/verifycodesignup_controller.dart';
+import 'package:ecommerce_application/core/class/handling_data_view.dart';
+import 'package:ecommerce_application/core/class/statusrequest.dart';
 import 'package:ecommerce_application/core/constant/colors.dart';
 import 'package:ecommerce_application/view/widget/auth/custombodylabel.dart';
 import 'package:ecommerce_application/view/widget/auth/custommainlabel.dart';
@@ -11,7 +13,6 @@ class VerifyCodeSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    VerifyCodeSignUpControllerImp controller =
         Get.put(VerifyCodeSignUpControllerImp());
     return Scaffold(
       appBar: AppBar(
@@ -26,7 +27,9 @@ class VerifyCodeSignUp extends StatelessWidget {
               .copyWith(color: AppColor.grey),
         ),
       ),
-      body: Container(
+      body: GetBuilder<VerifyCodeSignUpControllerImp>
+      (builder: (controller)=>
+     HandlingDataRequest(statusRequest: controller.statusRequest,widget:       Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: ListView(
           children: [
@@ -50,7 +53,7 @@ class VerifyCodeSignUp extends StatelessWidget {
               },
               //runs when every textfield is filled
               onSubmit: (String verificationCode) {
-                controller.goToSuccessSignup();
+                controller.goToSuccessSignup(verificationCode);
                 // showDialog(
                 //     context: context,
                 //     builder: (context) {
@@ -69,7 +72,7 @@ class VerifyCodeSignUp extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      ),),),
     );
   }
 }

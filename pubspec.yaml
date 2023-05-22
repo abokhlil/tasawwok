@@ -81,6 +81,7 @@ dependencies:
   lottie: ^2.3.2
   flutter_svg: ^0.23.0+1
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

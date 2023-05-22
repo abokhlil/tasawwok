@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
 import 'package:ecommerce_application/core/function/checkinternet.dart';
+import 'package:get/get.dart';
 
 import 'statusrequest.dart';
 import 'package:http/http.dart ' as http;
@@ -18,16 +19,25 @@ class Crud {
           print("Mahmoud2");
           return Right(responseBody);
         } else {
-          print("Mahmoud3");
+          Get.defaultDialog(
+          title: 'serverFailure',
+          middleText: 'serverFailure',
+        );
           return const Left(StatusRequest.serverFailure);
         }
       } else {
-        print("Mahmoud4");
+        Get.defaultDialog(
+          title: 'no internet',
+          middleText: 'offLineFailure',
+        );
         return const Left(StatusRequest.offLineFailure);
       }
     } catch (_) {
-      print("Mahmoud5");
+       Get.defaultDialog(
+          title: 'serverException',
+          middleText: 'serverException ',
+        );
       return const Left(StatusRequest.serverException);
-    }
+    } 
   }
 }
