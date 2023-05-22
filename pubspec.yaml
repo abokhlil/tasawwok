@@ -79,6 +79,7 @@ dependencies:
   device_preview: ^0.7.5
   responsive_builder: ^0.4.2
   lottie: ^2.3.2
+  flutter_svg: ^0.23.0+1
 
 dev_dependencies:
   flutter_test:
