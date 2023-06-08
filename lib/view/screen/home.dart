@@ -21,10 +21,17 @@ class HomePage extends StatelessWidget {
              const CustomCardHome(title: "A summer surprise", body: "Cashback 20%"),
           
             const SizedBox(height: 10,),
+            const CustomTitelHome(titel: "Categories"),
+            const SizedBox(height: 10,),
             const ListCategoriesHome(),
             
             const SizedBox(height: 10,),
            const CustomTitelHome(titel: "Product for you"),
+           const SizedBox(height: 10,),
+           const ListItemHome(),
+            const SizedBox(height: 10,),
+
+           const CustomTitelHome(titel: "Offer"),
            const SizedBox(height: 10,),
            const ListItemHome(),
             

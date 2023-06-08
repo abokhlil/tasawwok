@@ -13,5 +13,8 @@ class AppRoute {
   static const String onboarding = '/onboarding';
   //Home
   static const String homescreen = '/homescreen';
+  static const String settings = '/settings';
+  static const String details= '/details';
+  static const String cart= '/cart';
 
 }

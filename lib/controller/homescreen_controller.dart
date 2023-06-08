@@ -1,6 +1,10 @@
-import 'package:ecommerce_application/view/screen/home.dart';
 import 'package:flutter/material.dart';
+
+
 import 'package:get/get_state_manager/get_state_manager.dart';
+
+import '../view/screen/home.dart';
+import '../view/screen/settings.dart';
 
 
 abstract class HomeScreenController extends GetxController{
@@ -28,28 +32,15 @@ class HomeScreenControllerImp extends HomeScreenController{
         ),
       ],
     ),
-     Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Center(
-          child: Text('Favorait'),
-        ),
-      ],
-    ),
+    Settings(),
   ];
-  List titlebottomappbar =[
-   "home",
-   "setting",
-   "profail",
-   "favorite"
+  List bottomappbar =[
+   {"title":"home","icon":Icons.home},
+   {"title":"ca","icon":Icons.notifications_active_outlined},
+   {"title":"profile","icon":Icons.person_pin_sharp},
+   {"title":"setting","icon":Icons.settings},
   ];
-    List iconbottomappbar =[
-   Icons.home,
-   Icons.settings,
-   Icons.person,
-   Icons.favorite,
-  ];
-
+   
   @override
   changePage(int i) {
    currentpage =i;

@@ -22,8 +22,8 @@ class CustomButtonAppbarHome extends StatelessWidget {
            ...List.generate(controller.listPage.length+1, ((index) {
             int i =index>2?index-1:index;
             return index ==2?const Spacer(): CustomButtonAppBar(
-            textbutton: controller.titlebottomappbar[i], 
-           icondata: controller.iconbottomappbar[i],
+             textbutton: controller.bottomappbar[i]["title"], 
+             icondata: controller.bottomappbar[i]["icon"],
             onPressed: (){
             controller.changePage(i);
           }, 
