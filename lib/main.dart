@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'core/localization/translation.dart';
 import 'routes.dart';
-import 'test.dart';
-import 'view/screen/auth/forgetpassword/resetpassword.dart';
-import 'view/screen/language.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
