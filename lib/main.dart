@@ -7,6 +7,9 @@ import 'core/localization/translation.dart';
 import 'routes.dart';
 
 
+
+
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initialServices();
