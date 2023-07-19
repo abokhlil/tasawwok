@@ -45,7 +45,6 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
         }
       }
       update();
-    }
-    ;
+    };
   }
 }
