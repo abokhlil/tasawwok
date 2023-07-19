@@ -12,13 +12,14 @@ abstract class SignUPController extends GetxController {
 
 class SignUpControllerImp extends SignUPController {
   GlobalKey<FormState> formState = GlobalKey<FormState>();
-  late TextEditingController userName;
-  late TextEditingController phoneNumber;
+  late TextEditingController username;
+  late TextEditingController address;
+  late TextEditingController phone;
   late TextEditingController email;
   late TextEditingController password;
   SignUpData signupData = SignUpData(Get.find());
   List data = [];
-   StatusRequest statusRequest = StatusRequest.none;
+  StatusRequest statusRequest = StatusRequest.none;
   @override
   signup() async {
     var formData = formState.currentState;
@@ -26,17 +27,16 @@ class SignUpControllerImp extends SignUPController {
       statusRequest = StatusRequest.loading;
       update();
       var response = await signupData.postData(
-          userName.text, password.text, email.text, phoneNumber.text);
+          username.text, password.text, email.text, phone.text, address.text);
       print("=============controller $response");
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
-        if (response['status'] == "success") {
-          data.addAll(response['data']);
-          Get.offNamed(AppRoute.verifyCodeSignUp, arguments: 
-         {
-          "email":email.text,
-         }
-          );
+        if (response['message'] == "Success SignUp") {
+          print('Hello');
+         // data.addAll(response['data']);
+          Get.offNamed(AppRoute.verifyCodeSignUp, arguments: {
+            "email": email.text,
+          });
         } else {
           Get.defaultDialog(
               title: "Warning",
@@ -54,19 +54,21 @@ class SignUpControllerImp extends SignUPController {
 
   @override
   void onInit() {
-    userName = TextEditingController();
-    phoneNumber = TextEditingController();
+    username = TextEditingController();
+    phone = TextEditingController();
     email = TextEditingController();
     password = TextEditingController();
+    address = TextEditingController();
     super.onInit();
   }
 
   @override
   void dispose() {
-    userName.dispose();
-    phoneNumber.dispose();
+    username.dispose();
+    phone.dispose();
     email.dispose();
     password.dispose();
+    address.dispose();
     super.dispose();
   }
 

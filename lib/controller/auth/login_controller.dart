@@ -5,7 +5,6 @@ import 'package:ecommerce_application/data/datasource/remote/auth/login_data.dar
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:firebase_messaging/firebase_messaging.dart';
 
 abstract class LoginController extends GetxController {
   login();
@@ -27,25 +26,20 @@ class LoginControllerImp extends LoginController {
   }
 
   @override
-  login() async {
+login() async {
     var formData = formState.currentState;
     if (formData!.validate()) {
       statusRequest = StatusRequest.loading;
       update();
-      var response = await loginData.postData(email.text, password.text);
+      var response = await loginData.postData(password.text, email.text);
       print("=============controller $response");
       statusRequest = handlingData(response);
       print('object');
       print(response);
       if (StatusRequest.success == statusRequest) {
         print('fff');
-        if (response['status'] == "success") {
-          print('status = success');
-          // data.addAll(response['data']);
+        if (response['message'] == "success login user") {
           Get.offNamed(AppRoute.successSignUP);
-          Get.defaultDialog(
-              title: "Warning", middleText: "Email or password is not correct");
-          statusRequest = StatusRequest.failure;
         }
         print('no success');
       }
@@ -57,9 +51,6 @@ class LoginControllerImp extends LoginController {
 
   @override
   void onInit() {
-    FirebaseMessaging.instance.getToken().then((value) {
-      print(value);
-    });
     email = TextEditingController();
     password = TextEditingController();
     super.onInit();
