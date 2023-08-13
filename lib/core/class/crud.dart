@@ -3,13 +3,15 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:ecommerce_application/core/constant/routesname.dart';
 import 'package:ecommerce_application/core/function/checkinternet.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import 'statusrequest.dart';
 import 'package:http/http.dart ' as http;
 
-class Crud {
-  Future<Either<StatusRequest, Map>> postData(
+ class Crud {
+  
+   Future<Either<StatusRequest, Map>> postData(
       String linkUrl, Map<String, String> data) async {
     print(data);
     print(linkUrl);
@@ -34,7 +36,6 @@ class Crud {
           Map responseBody = jsonDecode(response.body);
           print('ERROR 6');
           print(responseBody);
-          print('ERROR 7');
           return Right(responseBody);
         } else {
           Get.defaultDialog(

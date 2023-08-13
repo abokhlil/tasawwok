@@ -1,3 +1,5 @@
+import 'package:ecommerce_application/controller/auth/login_controller.dart';
+import 'package:ecommerce_application/core/class/crud.dart';
 import 'package:ecommerce_application/core/class/statusrequest.dart';
 import 'package:ecommerce_application/core/constant/routesname.dart';
 import 'package:ecommerce_application/core/function/handling_data.dart';
@@ -32,8 +34,8 @@ class SignUpControllerImp extends SignUPController {
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['message'] == "Success SignUp") {
-          print('Hello');
-         // data.addAll(response['data']);
+          print('--------------------');
+          // data.addAll(response['data']);
           Get.offNamed(AppRoute.verifyCodeSignUp, arguments: {
             "email": email.text,
           });

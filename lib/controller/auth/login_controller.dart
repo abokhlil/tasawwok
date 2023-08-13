@@ -1,3 +1,4 @@
+import 'package:ecommerce_application/core/class/crud.dart';
 import 'package:ecommerce_application/core/class/statusrequest.dart';
 import 'package:ecommerce_application/core/constant/routesname.dart';
 import 'package:ecommerce_application/core/function/handling_data.dart';
@@ -5,6 +6,8 @@ import 'package:ecommerce_application/data/datasource/remote/auth/login_data.dar
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+
+
 
 abstract class LoginController extends GetxController {
   login();
@@ -14,6 +17,7 @@ abstract class LoginController extends GetxController {
 }
 
 class LoginControllerImp extends LoginController {
+  static var token = '';
   GlobalKey<FormState> formState = GlobalKey<FormState>();
   late TextEditingController email;
   late TextEditingController password;
@@ -26,7 +30,7 @@ class LoginControllerImp extends LoginController {
   }
 
   @override
-login() async {
+  login() async {
     var formData = formState.currentState;
     if (formData!.validate()) {
       statusRequest = StatusRequest.loading;
@@ -39,6 +43,10 @@ login() async {
       if (StatusRequest.success == statusRequest) {
         print('fff');
         if (response['message'] == "success login user") {
+          String phone = response['data']['Phone'];
+          token = response['token'];
+          print("-------------------------------");
+          print(token);
           Get.offNamed(AppRoute.successSignUP);
         }
         print('no success');

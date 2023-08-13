@@ -7,10 +7,6 @@ import 'core/localization/translation.dart';
 import 'routes.dart';
 import 'view/screen/auth/forgetpassword/resetpassword.dart';
 
-
-
-
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initialServices();
@@ -31,10 +27,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: controller.appTheme,
       initialBinding: InitialBindings(),
-       home: const ResetPassword(),
+      //  home: const ResetPassword(),
       // home: const Test(),
       //  routes: routes,
-    //  getPages: routes,
+      getPages: routes,
     );
   }
 }

@@ -2,7 +2,7 @@ import 'package:ecommerce_application/core/class/crud.dart';
 import 'package:ecommerce_application/link_api.dart';
 
 class SignUpData {
-  Crud crud;
+ Crud crud;
   SignUpData(this.crud);
 
     postData(String username,String password,String email,String phone,String address ) async {
