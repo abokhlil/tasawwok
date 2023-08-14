@@ -16,7 +16,10 @@ import 'package:ecommerce_application/view/screen/language.dart';
 import 'package:ecommerce_application/view/screen/onboarding.dart';
 import 'package:ecommerce_application/view/screen/settings.dart';
 
+
 import 'package:get/get.dart';
+
+import 'data/datasource/remote/home_data.dart';
 
 List<GetPage<dynamic>>? routes = [
   // GetPage(name:"/", page:()=> const Language(), middlewares: [
@@ -37,6 +40,9 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name:AppRoute.settings, page:()=> const Settings()),
   GetPage(name:AppRoute.details, page:()=> const Details()),
   GetPage(name:AppRoute.cart, page:()=> const Cart()),
+
+
+ // GetPage(name:"/", page:()=> const HomeData()),
 ];
 
 // Map<String, Widget Function(BuildContext)> routess = {
