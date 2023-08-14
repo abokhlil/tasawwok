@@ -7,8 +7,8 @@ class ResetPasswordData {
 
   postData(String password, String email) async {
     var response = await crud.postData(AppLink.resetpasswordApi, {
-      "password": password,
-      "email": email,
+      "Password": password,
+      "Email": email,
     });
     return response.fold((l) => l, (r) => r);
   }

@@ -27,7 +27,7 @@ List<GetPage<dynamic>>? routes = [
   // ]), 
 
   
-  GetPage(name:AppRoute.login, page:()=> const Login()),
+  GetPage(name:"/", page:()=> const Login()),
   GetPage(name:AppRoute.signUp, page:()=> const SignUp()),
   GetPage(name:AppRoute.forgetPassword, page:()=> const ForgetPassword()),
   GetPage(name:AppRoute.verifyCode, page:()=> const VerifyCode()),
@@ -36,7 +36,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name:AppRoute.successSignUP, page:()=> const SuccessSignUp()),
   GetPage(name:AppRoute.verifyCodeSignUp, page:()=> const VerifyCodeSignUp()),
   GetPage(name:AppRoute.onboarding, page:()=> const OnBoarding()),
-  GetPage(name:"/", page:()=> const HomeScreen()),
+  GetPage(name:AppRoute.homescreen, page:()=> const HomeScreen()),
   GetPage(name:AppRoute.settings, page:()=> const Settings()),
   GetPage(name:AppRoute.details, page:()=> const Details()),
   GetPage(name:AppRoute.cart, page:()=> const Cart()),
