@@ -1,3 +1,4 @@
+import 'package:ecommerce_application/core/constant/routesname.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -12,6 +13,8 @@ class Category {
 
 class CategoryController extends GetxController {
   RxList<Category> categories = <Category>[].obs;
+   int catid =0;
+   int? selectedCat ;
 
   @override
   void onInit() {
@@ -43,7 +46,18 @@ class CategoryController extends GetxController {
   }
 
   void loadCategoryData(id) {}
+
+  void goToItems(categories, selectedCat ,catid ) {
+    Get.toNamed(AppRoute.ItemesNew,arguments: {
+      "categories":categories ,
+      "selectedCat":selectedCat,
+      "catid":catid
+     
+    });
+    
+  }
 }
+
 
 // import 'package:get/get.dart';
 // import 'package:http/http.dart' as http;

@@ -20,7 +20,7 @@ class CategoryAll extends StatelessWidget {
             scrollDirection: Axis.vertical,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 1.3,
+                childAspectRatio: 0.7,
                 mainAxisSpacing: 0.0,
                 crossAxisSpacing: 0.0),
             itemCount: 12,
