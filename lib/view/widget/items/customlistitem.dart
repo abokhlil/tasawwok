@@ -1,4 +1,3 @@
-
 import 'package:ecommerce_application/controller/custom_controller.dart';
 import 'package:ecommerce_application/core/constant/imageconstant.dart';
 import 'package:flutter/material.dart';
@@ -11,19 +10,16 @@ class CustomListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<CustomController>(
       init: CustomController(),
-
       builder: (CustomController controller) {
-        
         return GridView.builder(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
-          itemCount: controller.catigoryProducts.length,
+          itemCount: controller.finalProducts.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: 0.7,
           ),
           itemBuilder: (BuildContext context, index) {
-            var product = controller.catigoryProducts[index];
             return InkWell(
               child: Card(
                 child: Padding(
@@ -32,9 +28,23 @@ class CustomListItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(AppImageAsset.onBoardingImageTwo),
-                      Text(product['type'],style: TextStyle(
-                        fontWeight: FontWeight.bold,fontSize: 20
-                      ),),
+                      Row(
+                        children: [
+                          Text(
+                            controller.finalProducts[index]['Name'],
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                          Spacer(),
+                          Text(
+                            '${controller.finalProducts[index]['Price']}£',
+                            style: TextStyle(
+                                color: Colors.amber,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
@@ -46,4 +56,3 @@ class CustomListItem extends StatelessWidget {
     );
   }
 }
-

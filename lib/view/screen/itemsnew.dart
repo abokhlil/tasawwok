@@ -5,12 +5,14 @@ import 'package:ecommerce_application/view/widget/items/listcategriesitems.dart'
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../controller/category_controller.dart';
+
 class ItemesNew extends StatelessWidget {
   const ItemesNew({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ItemesNewControllerImp controller = Get.put(ItemesNewControllerImp());
+    CategoryController controller = Get.put(CategoryController());
 
     return Scaffold(
       backgroundColor: Colors.grey[150],

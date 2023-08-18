@@ -14,7 +14,7 @@ class Category {
 }
 
 abstract class ItemesNewController extends GetxController{
-  intialData();
+ 
   changeCat(int val);
   getItems();
 
@@ -29,18 +29,10 @@ class ItemesNewControllerImp extends ItemesNewController{
 
   get data => null;
    
-     @override
-     intialData() {
-     categories =Get.arguments['categories'];
-     selectedCat=Get.arguments['selectedCat'];
-    
-    
-     fetchCatigoryProducts(3);
-     }
 
      @override
   void onInit() {
-    intialData();
+   
     super.onInit();
   }
   

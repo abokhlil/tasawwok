@@ -1,56 +1,55 @@
-
-import 'package:ecommerce_application/controller/items_controller.dart';
-import 'package:ecommerce_application/core/constant/colors.dart';
+import 'package:ecommerce_application/controller/category_controller.dart';
+import 'package:ecommerce_application/controller/custom_controller.dart';
+import 'package:ecommerce_application/view/screen/itemsnew.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../core/constant/colors.dart';
 
 class ListCategoriesItems extends StatelessWidget {
-  final ItemesNewControllerImp controller = Get.put(ItemesNewControllerImp());
+  final CategoryController controller = Get.put(CategoryController());
   late final int? i;
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => SizedBox(
+    CustomController con = Get.put(CustomController());
+    return GetBuilder<CategoryController>(builder: (controller) {
+      return SizedBox(
         height: 100,
         child: ListView.separated(
           separatorBuilder: (context, index) => const SizedBox(width: 10),
-          itemCount: controller.categories.length,
+          itemCount: controller.twoCat.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return InkWell(
-           
-              onTap: (){
-               // controller.goToItems(controller.categories,index);
-               controller.changeCat(index);
+              onTap: () {
+                print(index);
+                con.getFinalProducts(index + 1);
               },
               child: Column(
-
                 children: [
-                 
-                  GetBuilder
-                  <ItemesNewControllerImp>(builder: (controller)=>Container(
-                    padding: EdgeInsets.only(right: 10,left: 10,bottom: 5),
-                    decoration:controller.selectedCat ==index ? BoxDecoration(
-                      border: Border(
-                        bottom:
-                        BorderSide(width: 3,color: AppColor.primaryColor)
+                  Container(
+                    decoration: BoxDecoration(
+                      color: AppColor.therdColor,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    height: 50,
+                    width: 90,
+                    child: Center(
+                      child: Text(
+                        controller.twoCat[index]['type'],
+                        style: TextStyle(fontSize: 13, color: Colors.black),
                       ),
-                    ):null,
-                    
-                    child: Text(
-                      controller.categories[index].name,
-                      style: TextStyle(fontSize: 20, color: Colors.black,fontWeight: FontWeight.bold),
                     ),
                     //Icon(Icons.face_2),
-                  ),),
+                  ),
                 ],
               ),
             );
           },
         ),
-      ),
-    );
+      );
+    });
   }
 }

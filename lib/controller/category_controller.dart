@@ -1,5 +1,3 @@
-
-
 import 'package:ecommerce_application/core/constant/routesname.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -17,8 +15,9 @@ class Category {
 
 class CategoryController extends GetxController {
   RxList<Category> categories = <Category>[].obs;
-   int catid =0;
-   int? selectedCat ;
+   RxList<Category> categories2 = <Category>[].obs;
+  int catid = 0;
+  int? selectedCat;
 
   @override
   void onInit() {
@@ -41,7 +40,8 @@ class CategoryController extends GetxController {
         if (data['message'] == 'success fetch catigories') {
           final categoriesData = data['data'] as List<dynamic>;
 
-          categories.assignAll(categoriesData.map((category) => Category(category)).toList());
+          categories.assignAll(
+              categoriesData.map((category) => Category(category)).toList());
         }
       }
     } catch (error) {
@@ -49,15 +49,56 @@ class CategoryController extends GetxController {
     }
   }
 
-  void loadCategoryData(id) {}
+   List twoCat = [];
+  @override
+  Future<http.Response> getTwoCategory(id) async {
+    print('1');
 
-  void goToItems(categories, selectedCat ,int catid ) {
-    Get.toNamed(AppRoute.ItemesNew,arguments: {
-      "categories":categories ,
-      "selectedCat":selectedCat,
-      "catid":catid
-     
-    });
-    
+    http.Response response = await http.get(
+        Uri.parse('http://10.0.2.2:8000/api/catigory-product/$id'),
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ${LoginControllerImp.token}'
+        });
+    print('2');
+    if (response.statusCode == 200) {
+      print('3');
+      var map = jsonDecode(response.body);
+      print('4');
+      if (map['message'] == 'success fetch CatigoryProduct') {
+        print('5');
+        twoCat = map['data'];
+        print('6');
+      } else {
+        Get.defaultDialog(title: 'oops', middleText: 'there is no products ');
+      }
+      print(twoCat);
+      update();
+      return response;
+    } else {
+      throw new Exception('can not load');
+    }
   }
-}
+
+
+
+
+    // var headers = {
+    //    'Accept': 'application/json',
+    //   'Authorization': 'Bearer ${LoginControllerImp.token}'
+    // };
+    // var request = http.Request(
+    //     'GET', Uri.parse('http://10.0.2.2:8000/api/catigory-product/$id'));
+
+    // request.headers.addAll(headers);
+
+    // http.StreamedResponse response = await request.send();
+
+    // if (response.statusCode == 200) {
+    //   print(await response.stream.bytesToString());
+    
+    // } else {
+    //   print(response.reasonPhrase);
+    // }
+  }
+
