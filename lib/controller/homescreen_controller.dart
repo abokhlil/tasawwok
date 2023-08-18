@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import '../view/screen/favorite.dart';
 import '../view/screen/home.dart';
 import '../view/screen/itemes.dart';
 import '../view/screen/settings.dart';
@@ -12,7 +13,7 @@ class HomeScreenControllerImp extends HomeScreenController {
   int currentpage = 0;
   List<Widget> listPage = [
     const HomePage(),
-    const Itemes(),
+    const Favorite(),
     Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -24,10 +25,10 @@ class HomeScreenControllerImp extends HomeScreenController {
     Settings(),
   ];
   List bottomappbar = [
-    {"title": "home", "icon": Icons.home},
-    {"title": "Category", "icon": Icons.category_outlined},
-    {"title": "profile", "icon": Icons.person_pin_sharp},
-    {"title": "setting", "icon": Icons.settings},
+    {"title": "Home", "icon": Icons.home},
+    {"title": "Favorite", "icon": Icons.favorite_border_outlined},
+    {"title": "Profile", "icon": Icons.person_pin_sharp},
+    {"title": "Setting", "icon": Icons.settings},
   ];
 
   @override

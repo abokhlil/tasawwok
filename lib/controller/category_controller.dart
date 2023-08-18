@@ -1,8 +1,11 @@
-import 'package:ecommerce_application/controller/auth/login_controller.dart';
+
+
 import 'package:ecommerce_application/core/constant/routesname.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'auth/login_controller.dart';
 
 class Category {
   final String name;
@@ -29,7 +32,7 @@ class CategoryController extends GetxController {
     try {
       final response = await http.get(Uri.parse(url), headers: {
         'Accept': 'application/json',
-        'Authorization':  'Bearer ${LoginControllerImp.token}',
+        'Authorization': 'Bearer ${LoginControllerImp.token}',
       });
 
       if (response.statusCode == 200) {

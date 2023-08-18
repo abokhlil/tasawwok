@@ -28,7 +28,10 @@ List<GetPage<dynamic>>? routes = [
   // ]), 
 
   
+
   GetPage(name:'/', page:()=> const Login()),
+
+  GetPage(name:"/", page:()=> const Login()),
   GetPage(name:AppRoute.signUp, page:()=> const SignUp()),
   GetPage(name:AppRoute.forgetPassword, page:()=> const ForgetPassword()),
   GetPage(name:AppRoute.verifyCode, page:()=> const VerifyCode()),
