@@ -1,8 +1,9 @@
+import 'package:ecommerce_application/controller/auth/login_controller.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class ApiController extends GetxController {
+class CustomController extends GetxController {
   var catigoryProducts = [].obs;
   var isLoading = true.obs;
 
@@ -11,17 +12,16 @@ class ApiController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchCatigoryProducts(5); // تحميل البيانات الأولية عند تهيئة الـ Controller
+    fetchCatigoryProducts(1); // تحميل البيانات الأولية عند تهيئة الـ Controller
   }
 
- 
-
-  void fetchCatigoryProducts(int id) async {
+  void fetchCatigoryProducts(int catid) async {
     try {
       isLoading.value = true;
-      var token = '2|e6042rfqATQtr7XYwYlBRAqiy5vHG9msTFOaNVy0'; // استبدله بالتوكن الخاص بك
-      var headers = {'Authorization': 'Bearer $token'};
-      var response = await http.get(Uri.parse('$apiUrl/$id'), headers: headers);
+      var token =
+          '2|e6042rfqATQtr7XYwYlBRAqiy5vHG9msTFOaNVy0'; // استبدله بالتوكن الخاص بك
+      var headers = {'Authorization': 'Bearer ${LoginControllerImp.token}'};
+      var response = await http.get(Uri.parse('$apiUrl/$catid'), headers: headers);
       if (response.statusCode == 200) {
         var data = json.decode(response.body);
         catigoryProducts.value = data['data'];
@@ -30,4 +30,9 @@ class ApiController extends GetxController {
       isLoading.value = false;
     }
   }
+  //  void onCategoryItemSelected(int categoryId) {
+  //   fetchCatigoryProducts(categoryId);
+  // }
+  
 }
+
