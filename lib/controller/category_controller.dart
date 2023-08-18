@@ -1,3 +1,4 @@
+import 'package:ecommerce_application/controller/auth/login_controller.dart';
 import 'package:ecommerce_application/core/constant/routesname.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -28,7 +29,7 @@ class CategoryController extends GetxController {
     try {
       final response = await http.get(Uri.parse(url), headers: {
         'Accept': 'application/json',
-        'Authorization': 'Bearer 2|e6042rfqATQtr7XYwYlBRAqiy5vHG9msTFOaNVy0',
+        'Authorization':  'Bearer ${LoginControllerImp.token}',
       });
 
       if (response.statusCode == 200) {
@@ -47,7 +48,7 @@ class CategoryController extends GetxController {
 
   void loadCategoryData(id) {}
 
-  void goToItems(categories, selectedCat ,catid ) {
+  void goToItems(categories, selectedCat ,int catid ) {
     Get.toNamed(AppRoute.ItemesNew,arguments: {
       "categories":categories ,
       "selectedCat":selectedCat,
@@ -57,51 +58,3 @@ class CategoryController extends GetxController {
     
   }
 }
-
-
-// import 'package:get/get.dart';
-// import 'package:http/http.dart' as http;
-// import 'dart:convert';
-
-// class Category {
-//   final String name;
-
-//   Category(this.name);
-
-//   get id => null;
-// }
-
-// class HomeController extends GetxController {
-//   RxList<Category> categories = <Category>[].obs;
-
-//   @override
-//   void onInit() {
-//     super.onInit();
-//     fetchCategories();
-//   }
-
-//   Future<void> fetchCategories() async {
-//     final url = 'http://10.0.2.2:8000/api/bas-catigories';
-
-//     try {
-//       final response = await http.get(Uri.parse(url), headers: {
-//         'Accept': 'application/json',
-//         'Authorization': 'Bearer 2|e6042rfqATQtr7XYwYlBRAqiy5vHG9msTFOaNVy0',
-//       });
-
-//       if (response.statusCode == 200) {
-//         final data = json.decode(response.body);
-
-//         if (data['message'] == 'success fetch catigories') {
-//           final categoriesData = data['data'] as List<dynamic>;
-
-//           //categories.assignAll(categoriesData.map((category) => Category(category['name'])).toList());
-//         }
-//       }
-//     } catch (error) {
-//       print('حدث خطأ: $error');
-//     }
-//   }
-
-//   void loadCategoryData(id) {}
-// }

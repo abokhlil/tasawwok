@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:ecommerce_application/controller/auth/login_controller.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -25,13 +26,16 @@ class ItemesNewControllerImp extends ItemesNewController{
    var catigoryProducts = [].obs;
   var isLoading = true.obs;
   final String apiUrl = 'http://10.0.2.2:8000/api/catigory-product';
+
+  get data => null;
    
      @override
      intialData() {
      categories =Get.arguments['categories'];
      selectedCat=Get.arguments['selectedCat'];
     
-     fetchCatigoryProducts(1);
+    
+     fetchCatigoryProducts(3);
      }
 
      @override
@@ -50,12 +54,11 @@ class ItemesNewControllerImp extends ItemesNewController{
   getItems() {
    
   }
-    void fetchCatigoryProducts(int catid,) async {
+    void fetchCatigoryProducts(int id,) async {
     try {
       isLoading.value = true;
-      var token = '2|e6042rfqATQtr7XYwYlBRAqiy5vHG9msTFOaNVy0'; // استبدله بالتوكن الخاص بك
-      var headers = {'Authorization': 'Bearer $token'};
-      var response = await http.get(Uri.parse('$apiUrl/$catid'), headers: headers);
+      var headers = {'Authorization': 'Bearer ${LoginControllerImp.token}'};
+      var response = await http.get(Uri.parse('$apiUrl/$id'), headers: headers);
       if (response.statusCode == 200) {
         var data = json.decode(response.body);
         catigoryProducts.value = data['data'];
@@ -64,6 +67,8 @@ class ItemesNewControllerImp extends ItemesNewController{
       isLoading.value = false;
     }
   }
+
+ 
 
 
 }

@@ -38,6 +38,7 @@ class ListCategoriesItems extends StatelessWidget {
                         BorderSide(width: 3,color: AppColor.primaryColor)
                       ),
                     ):null,
+                    
                     child: Text(
                       controller.categories[index].name,
                       style: TextStyle(fontSize: 20, color: Colors.black,fontWeight: FontWeight.bold),
