@@ -1,8 +1,10 @@
+import 'package:ecommerce_application/controller/auth/login_controller.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class Category {
+  
   final String name;
 
   Category(this.name);
@@ -25,11 +27,13 @@ class CategoryController extends GetxController {
     try {
       final response = await http.get(Uri.parse(url), headers: {
         'Accept': 'application/json',
-        'Authorization': 'Bearer 2|e6042rfqATQtr7XYwYlBRAqiy5vHG9msTFOaNVy0',
+        'Authorization': 'Bearer ${LoginControllerImp.token}',
       });
 
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
+        print("here");
+        print(data);
 
         if (data['message'] == 'success fetch catigories') {
           final categoriesData = data['data'] as List<dynamic>;

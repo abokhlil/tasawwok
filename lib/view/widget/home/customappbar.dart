@@ -6,7 +6,19 @@ class CustomAppbar extends StatelessWidget {
   final String titleappbar;
   final void Function()? onPressedIcon;
   final void Function()? onPressedSearch;
-  const CustomAppbar({Key? key, required this.titleappbar, this.onPressedIcon, this.onPressedSearch}):super(key: key);
+  final void Function(String)? onChanged;
+  final TextEditingController searchcontroller;
+
+
+   const CustomAppbar({Key? key,
+   required this.titleappbar, 
+   this.onPressedIcon, 
+   this.onPressedSearch,
+   this.onChanged,
+   required this.searchcontroller,
+   })
+  :super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +27,8 @@ class CustomAppbar extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(child: TextFormField(
+                    controller:searchcontroller ,
+                    onChanged:onChanged ,
                     decoration: InputDecoration(
                       prefixIcon: IconButton(icon: Icon(Icons.search),onPressed: onPressedSearch,),
                       hintText: titleappbar,
@@ -36,7 +50,7 @@ class CustomAppbar extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 8),
                     
                     child: IconButton(onPressed: onPressedIcon,
-                     icon: Icon(Icons.notifications_active_outlined,
+                     icon: Icon(Icons.shopping_cart_checkout_outlined,
                      color: Colors.grey[600],)),),
                 ],
               ),

@@ -24,6 +24,8 @@ class LoginControllerImp extends LoginController {
   LoginData loginData = LoginData(Get.find());
   bool isShow = true;
   StatusRequest statusRequest = StatusRequest.none;
+
+
   @override
   goToSignUp() {
     Get.offNamed(AppRoute.signUp);

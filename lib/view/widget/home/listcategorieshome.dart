@@ -99,6 +99,8 @@ class ListCategoriesHome extends StatelessWidget {
         height: 100,
         child: ListView.separated(
           separatorBuilder: (context, index) => const SizedBox(width: 10),
+
+          
           itemCount: controller.categories.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
@@ -108,7 +110,7 @@ class ListCategoriesHome extends StatelessWidget {
               onTap: () {
                 // تحميل البيانات المرتبطة بالفئة والانتقال إلى واجهة مختلفة
                 controller.loadCategoryData(category.id);
-                Get.toNamed('/details', arguments: category);
+                Get.offNamed('/details', arguments: category);
               },
               child: Column(
                 children: [
