@@ -24,7 +24,7 @@ class ListCategoriesItems extends StatelessWidget {
             return InkWell(
               onTap: () {
                 print(index);
-                con.getFinalProducts(index + 1);
+                con.getFinalProducts( controller.twoCat[index]['id'].toString());
               },
               child: Column(
                 children: [

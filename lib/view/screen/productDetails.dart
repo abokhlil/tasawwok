@@ -296,14 +296,8 @@ class ProductDetails extends StatelessWidget {
 
                                        
                                       SizedBox(height: 15,),
-                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Icon(Icons.thumb_up_off_alt_sharp,color: AppColor.primaryColor,size: 25,),
-                                          SizedBox(width: 10,),
-                                         Text("Product rate :   4 ",style: TextStyle(fontWeight: FontWeight.bold),),
-                                        ],
-                                      ),
+
+                                       
 
                                       
                                       SizedBox(height: 10,),
@@ -347,27 +341,65 @@ class ProductDetails extends StatelessWidget {
                        ),
                                       ),
                                       SizedBox(height: 15,),
-                                      TextButton(onPressed: (){
-                                        controller.RatingProduct();
+                                      
+                                      ElevatedButton(onPressed: (){
+
+
+
+                                         controller.RatingProduct();
                                         print("the product has been rated as ${controller.rate}");
                                         print(controller.commentFORrating.text);
-                                        Get.defaultDialog(title: "rated");
+                                        Get.defaultDialog(title: "product rated",middleText: "...");
+
+
                                       },
-                                       child: Text("SUBMIT",style: TextStyle(fontWeight: FontWeight.bold),)
-                                       ),
+                                      style: ButtonStyle(
+                                        backgroundColor: MaterialStateProperty.all<Color>(AppColor.primaryColor)
+                                      ),
+                                      
+                                      
+                                       child: Text("SUBMIT",style: TextStyle(fontWeight: FontWeight.bold),)),
+
+                                      // TextButton(onPressed: (){
+                                      //   controller.RatingProduct();
+                                      //   print("the product has been rated as ${controller.rate}");
+                                      //   print(controller.commentFORrating.text);
+                                      //   Get.defaultDialog(title: "rated");
+                                      // },
+                                      //  child: Text("SUBMIT",style: TextStyle(fontWeight: FontWeight.bold),)
+                                      //  ),
                                        Row(
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
-                                        Icon(Icons.shopping_cart_rounded,color: AppColor.primaryColor,),
-                                        TextButton(onPressed: (){controller.AddingProductToCart();}, child: Text("Add Product to my cart",style: TextStyle(fontWeight: FontWeight.bold),))
+                                        Icon(Icons.shopping_cart_outlined,color: AppColor.primaryColor,size: 30,),
+                                        SizedBox(width: 10,),
+                                        ElevatedButton(
+                                           style: ButtonStyle(
+                                        backgroundColor: MaterialStateProperty.all<Color>(AppColor.primaryColor)
+                                      ),
+                                          
+                                          onPressed: (){controller.AddingProductToCart();
+                                          Get.defaultDialog(title: "product added to cart",middleText: "...");
+                                          
+                                          }, child: Text("Add Product to my cart",style: TextStyle(fontWeight: FontWeight.bold),))
                                        ],),
                                        
                                          
                                            Row(
                                           mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                          Icon(Icons.favorite,color:Colors.red,),
-                                          TextButton(onPressed: (){controller.AddingProductToFavourites();}, child: Text("Add Product to favourites",style: TextStyle(fontWeight: FontWeight.bold),))
+                                          Icon(Icons.favorite_border,color:Colors.red,size: 30,),
+                                          SizedBox(width: 10,),
+                                          ElevatedButton(
+                                            style: ButtonStyle(
+                                        backgroundColor: MaterialStateProperty.all<Color>(AppColor.primaryColor)
+                                      ),
+                                            onPressed: (){controller.AddingProductToFavourites();
+                                            Get.defaultDialog(title: "product added to favourites",middleText: "...");
+                                            
+                                            
+                                            
+                                            }, child: Text("Add Product to favourites",style: TextStyle(fontWeight: FontWeight.bold),))
                                                                              ],),
                                         
                 

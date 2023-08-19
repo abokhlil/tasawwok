@@ -66,6 +66,7 @@ class Cart extends StatelessWidget {
                 onPressed: () {
                   controller.makeOrder();
                 },
+                
                 totalprice: controller.totalPrice.toString(),
               )
             ],

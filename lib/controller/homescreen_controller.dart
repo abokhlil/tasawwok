@@ -1,3 +1,4 @@
+import 'package:ecommerce_application/view/screen/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import '../view/screen/favorite.dart';
@@ -14,14 +15,20 @@ class HomeScreenControllerImp extends HomeScreenController {
   List<Widget> listPage = [
     const HomePage(),
     const Favorite(),
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Center(
-          child: Text('Profail'),
-        ),
-      ],
-    ),
+    // Column(
+    //   mainAxisAlignment: MainAxisAlignment.center,
+    //   children: [
+    //     Center(
+    //       child: Column(
+    //         children: [
+              
+    //           Text('Profail'),
+    //         ],
+    //       ),
+    //     ),
+    //   ],
+    // ),
+    const Profile(),
     Settings(),
   ];
   List bottomappbar = [

@@ -31,7 +31,7 @@ class CartBottomNavBar extends StatelessWidget {
                   ),
                 ),
                  Text(
-                 "$totalprice\$",
+                 totalprice,
                   style: TextStyle(
                     color: Colors.red,
                     fontSize: 25,

@@ -9,12 +9,11 @@ import '../../core/constant/colors.dart';
 import '../../core/constant/imageconstant.dart';
 
 
-class Settings extends StatelessWidget {
-  const Settings({super.key});
+class Profile extends StatelessWidget {
+  const Profile({super.key});
 
   @override
   Widget build(BuildContext context) {
-    SettingsController controller= Get.put(SettingsController());
     return Container(
       child: ListView(
         children: [Stack(
@@ -35,8 +34,8 @@ class Settings extends StatelessWidget {
                 child: CircleAvatar(
                   radius: 40,
                   backgroundColor: Colors.white,
-                 // backgroundImage: AssetImage(AppImageAsset.tshirt),
-                 child: Icon(Icons.settings,size: 85,),
+                  //backgroundImage: AssetImage(AppImageAsset.tshirt),
+                  child: Icon(Icons.person_rounded,size: 85,color: AppColor.primaryColor,),
                 ),
               )),
               
@@ -51,35 +50,37 @@ class Settings extends StatelessWidget {
                     children: [
                         ListTile(
                           onTap: (){},
-                          trailing: Switch(value: true, onChanged: (val){}),
-                        title: Text("Disable Notification"),
+                          leading:Icon(Icons.person_2),
+                      
+                        title: Text("User Name : Mohamed Yousef"),
+                        
                         
                       ),
                       
                         ListTile(
                           onTap: (){},
-                        title: Text("Address"),
-                        trailing: Icon(Icons.location_on_outlined),
+                        title: Text("Address : Damascus_kaferSouseh"),
+                        leading: Icon(Icons.location_on_outlined),
                       ),
                       
                       ListTile(
                         onTap: (){},
-                        title: Text("About us"),
-                        trailing: Icon(Icons.help_outline_rounded),
+                        title: Text("Phone Number : 0962269365"),
+                        leading: Icon(Icons.help_outline_rounded),
                       ),
                       
                        ListTile(
                         onTap: (){},
-                        title: Text("Contact us"),
-                        trailing: Icon(Icons.phone_callback_outlined),
+                        title: Text("Age : 22"),
+                       leading: Icon(Icons.phone_callback_outlined),
                       ), 
                      
                       ListTile(
                         onTap: (){
-                          controller.logout();
+                     
                         },
-                        title: Text("Logout"),
-                        trailing: Icon(Icons.exit_to_app),
+                        title: Text("Edit Profile"),
+                        leading: Icon(Icons.exit_to_app),
                       ),
                      
                     ],
