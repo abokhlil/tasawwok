@@ -32,6 +32,8 @@ class MyApp extends StatelessWidget {
       initialBinding: InitialBindings(),
       //  home: const ResetPassword(),
       home:  Login(),
+      // home: const Cart(),
+      // home: const Test(),
       //  routes: routes,
       getPages: routes,
     );

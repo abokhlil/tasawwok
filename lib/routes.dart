@@ -12,6 +12,7 @@ import 'package:ecommerce_application/view/screen/auth/veriftycodesignup.dart';
 import 'package:ecommerce_application/view/screen/cart.dart';
 import 'package:ecommerce_application/view/screen/details.dart';
 import 'package:ecommerce_application/view/screen/homescreen.dart';
+import 'package:ecommerce_application/view/screen/itemsnew.dart';
 import 'package:ecommerce_application/view/screen/language.dart';
 import 'package:ecommerce_application/view/screen/onboarding.dart';
 import 'package:ecommerce_application/view/screen/settings.dart';
@@ -27,6 +28,9 @@ List<GetPage<dynamic>>? routes = [
   // ]), 
 
   
+
+  GetPage(name:'/', page:()=> const Login()),
+
   GetPage(name:"/", page:()=> const Login()),
   GetPage(name:AppRoute.signUp, page:()=> const SignUp()),
   GetPage(name:AppRoute.forgetPassword, page:()=> const ForgetPassword()),
@@ -40,6 +44,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name:AppRoute.settings, page:()=> const Settings()),
   GetPage(name:AppRoute.details, page:()=> const Details()),
   GetPage(name:AppRoute.cart, page:()=> const Cart()),
+  GetPage(name:AppRoute.ItemesNew, page:()=> const ItemesNew()),
 
 
  // GetPage(name:"/", page:()=> const HomeData()),
