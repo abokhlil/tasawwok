@@ -20,7 +20,7 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(LoginControllerImp());
     return Scaffold(
-      backgroundColor: Colors.grey[150],
+      backgroundColor: const Color.fromARGB(255, 33, 30, 30)[150],
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,

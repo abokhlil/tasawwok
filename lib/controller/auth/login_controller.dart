@@ -17,6 +17,7 @@ abstract class LoginController extends GetxController {
 }
 
 class LoginControllerImp extends LoginController {
+  
   static var token = '';
   GlobalKey<FormState> formState = GlobalKey<FormState>();
   late TextEditingController email;
